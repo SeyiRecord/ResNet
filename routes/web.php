@@ -15,9 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/signUp', function () {
-    return view('signUp');
-});
 
 Route::get('/login', function () {
     return view('login');
@@ -27,13 +24,11 @@ Route::get('/requestpassword', function () {
     return view('requestPassword');
 });
 
-
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/user', 'UserController' );
 Route::resource('/admin', 'AdminController' );
-
 
 
 
