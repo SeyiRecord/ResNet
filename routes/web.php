@@ -27,6 +27,17 @@ Route::get('/requestpassword', function () {
     return view('requestPassword');
 });
 
+
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/user', 'UserController' );
+Route::resource('/admin', 'AdminController' );
+
+
+
+
+
 Route::get('/viewprofile', function () {
     return view('viewProfile');
 });
@@ -50,10 +61,3 @@ Route::get('/listresearch', function () {
 Route::get('/editresearch', function () {
     return view('editResearch');
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
