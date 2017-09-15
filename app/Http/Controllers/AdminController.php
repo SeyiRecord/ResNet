@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct(){
         $this->middleware('auth:admin');
     }
@@ -19,7 +24,7 @@ class AdminController extends Controller
         //
         return view('admin');
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -84,5 +89,5 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
-    }
+    }    
 }
