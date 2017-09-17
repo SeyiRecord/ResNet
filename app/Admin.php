@@ -19,6 +19,9 @@ class Admin extends Authenticatable
     protected $fillable = [
         'userName', 'email', 'password', 'title',
     ];
+    //To Change primary key to userName
+    protected $primaryKey = 'userName';
+    public $incrementing = false;
 
     /**
      * The attributes that should be hidden for arrays.

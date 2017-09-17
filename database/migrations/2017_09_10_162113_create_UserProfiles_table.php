@@ -14,13 +14,15 @@ class CreateUserProfilesTable extends Migration
     public function up()
     {
         Schema::create('UserProfiles', function (Blueprint $table) {
-            $table->string('userID')->unique();
+            $table->string('userName')->unique();
+            $table->string('fName');
+            $table->string('lName');
             $table->text('profileSummary');
-            $table->text('address');
+            // $table->text('address');
             $table->string('city');
             $table->string('state');
             $table->string('country');
-            $table->integer('zipCode');
+            // $table->integer('zipCode');
             $table->binary('profileImg');
             $table->timestamps();
         });
