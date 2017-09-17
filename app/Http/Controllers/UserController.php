@@ -14,9 +14,9 @@ class UserController extends Controller
     public function index()
     {
         //
-        // return "List of all users";
-        $users = User::latest()->paginate();
-        return view('users.all', compact('users'));
+        return "List of all users";
+        /*$users = User::latest()->paginate();
+        return view('users.all', compact('users'));*/
     }
 
     /**
@@ -28,6 +28,7 @@ class UserController extends Controller
     {
         //
         return "Create new user";
+        // return view('users.create');
     }
 
     /**
@@ -50,8 +51,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
-        return "Display user details";
+        // return "Display user details";
+        return view('users.view', compact('user'));
     }
 
     /**
@@ -62,8 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
-        return "Edit user details";
+        // return "Edit user details";
+        return view('users.update', compact('user'));
     }
 
     /**
@@ -75,9 +76,10 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        return "Update user details";
-    }
+        // return "Update user details";
+        $this->validate($request, $this->rules($user->id));
+            return $this->save($request, $user);
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -87,7 +89,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
-        return "Delete user";
+        // return "Delete user";
+        if ($user->delete()) {
+            session()->flash('status', 'User deleted successfully');
+        } else {
+            session()->flash('status', 'Unable to delete user. Please try again');
+        }
+
+        return back();
     }
 }

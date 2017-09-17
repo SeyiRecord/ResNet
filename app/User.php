@@ -17,6 +17,10 @@ class User extends Authenticatable
     protected $fillable = [
         'userName', 'email', 'password', 'userType',
     ];
+    
+    //To Change primary key to userName
+    protected $primaryKey = 'userName';
+    public $incrementing = false;
 
     /**
      * The attributes that should be hidden for arrays.

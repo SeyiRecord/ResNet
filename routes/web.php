@@ -15,11 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/login', function () {
-    return view('login');
-});
-
 Route::get('/requestpassword', function () {
     return view('requestPassword');
 });
@@ -37,14 +32,14 @@ Route::prefix('admin')->group(function() {
 
 
 
+Route::get('/editProfile', function () {
+    return view('editProfile');
+});
 
 /*Route::get('/viewprofile', function () {
     return view('viewProfile');
 });
 
-Route::get('/editprofile', function () {
-    return view('editProfile');
-});
 
 Route::get('/createresearch', function () {
     return view('createResearch');
@@ -60,4 +55,8 @@ Route::get('/listresearch', function () {
 
 Route::get('/editresearch', function () {
     return view('editResearch');
-});*/
+});
+
+Route::get('/login', function () {
+    return view('login');
+}); */
