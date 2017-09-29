@@ -15,10 +15,11 @@ class CreatePostsTable extends Migration
     {
         Schema::create('Posts', function (Blueprint $table) {
             $table->increments('postID')->unique();
-            $table->string('userID');
             $table->text('content');
             $table->dateTime('postDate');
             $table->timestamps();
+            
+            $table->foreign('userName')->references('userName')->on('users');
         });
     }
 

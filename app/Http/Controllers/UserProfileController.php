@@ -81,4 +81,8 @@ class UserProfileController extends Controller
     {
         //
     }
+    
+    public function postProfile(Request $request) {
+        dd('Yes p');
+    }
 }

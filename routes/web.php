@@ -22,8 +22,7 @@ Route::get('/requestpassword', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/user', 'UserController' );
-Route::resource('users', 'UserController' );
+Route::resource('user', 'UserController' );
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
@@ -31,32 +30,8 @@ Route::prefix('admin')->group(function() {
   });
 
 
+Route::post('/profileform', 'UserProfileController@postProfile');
 
 Route::get('/editProfile', function () {
     return view('editProfile');
 });
-
-/*Route::get('/viewprofile', function () {
-    return view('viewProfile');
-});
-
-
-Route::get('/createresearch', function () {
-    return view('createResearch');
-});
-
-Route::get('/researchdetails', function () {
-    return view('researchDetails');
-});
-
-Route::get('/listresearch', function () {
-    return view('viewResearch');
-});
-
-Route::get('/editresearch', function () {
-    return view('editResearch');
-});
-
-Route::get('/login', function () {
-    return view('login');
-}); */

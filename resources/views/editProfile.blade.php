@@ -9,8 +9,8 @@
                 <div class="panel-heading"><H2>{{ Auth::user()->userName }}</H2>Edit Profile Dashboard</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal">
-                        <!-- <form class="form-horizontal" method="POST" action="{{ route('register') }}"> -->
+                    <form class="form-horizontal" method='POST' action='/profileform'>
+                        <!-- <form class="form-horizontal" method="POST" action=""> -->
                         {{ csrf_field() }}
 
                                              
@@ -56,20 +56,7 @@
                             </div>
                         </div>
                         
-                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
-                            <label for="address" class="col-md-4 control-label">Address</label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required autofocus>
-
-                                @if ($errors->has('address'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
+                                                
                         <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
                             <label for="city" class="col-md-4 control-label">City</label>
 
